@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>KhalsUK - Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/shared.css">
+    </head>
+
+    <body>
+        <div id="contentModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modal-inner">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="page-wrapper">
+            <h1>KhalsUK</h1>
+            <div class="content-container">
+                <h2>About me</h2>
+                <p>Hi there!</p>
+                <p>I'm an undergraduate student from the United Kingdom in my first year of studying Computer Science.</p>
+                <br>
+                <p>I've been programming for around 8 years now, starting with simple scripting sites like <a href="https://www.scratch.mit.edu">Scratch</a> (hardly programming, I know :D). I then moved onto languages like Python, Lua, JS, C# and more (even some assembly!).</p>
+            </div>
+            <div class="content-container">
+                <h2>Portfolio</h2>
+                <p>Here are some of the projects (some personal, some hired) I've had the pleasure of working on over the past year or so.</p>
+                <h3>Roblox</h3>
+                <div class="portfolio-item">
+                    <div class="portfolio-item-head">
+                        <h4>Disarray</h4>
+                    </div>
+                    <img src="img/disarray.png">
+                    <div class="portfolio-item-footer">
+                        <p class="portfolio-link"><a href="javascript:;" onclick="openContent('Disarray');">Learn more</a></p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-item-head">
+                        <h4>Project Realtime</h4>
+                    </div>
+                    <img src="img/realtime.PNG">
+                    <div class="portfolio-item-footer">
+                        <p class="portfolio-link"><a href="javascript:;" onclick="openContent('Realtime');">Learn more</a></p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-item-head">
+                        <h4>Colony Survival</h4>
+                    </div>
+                    <img src="img/colony.PNG">
+                    <div class="portfolio-item-footer">
+                        <p class="portfolio-link"><a href="javascript:;" onclick="openContent('Colony');">Learn more</a></p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-item-head">
+                        <h4>Door system</h4>
+                    </div>
+                    <img src="img/doorsys.PNG">
+                    <div class="portfolio-item-footer">
+                        <p class="portfolio-link"><a href="javascript:;" onclick="openContent('Doors');">Learn more</a></p>
+                    </div>
+                </div>
+                <h3>Non-Roblox</h3>
+                <div class="portfolio-item">
+                    <div class="portfolio-item-head">
+                        <h4>Untitled Zombie Game</h4>
+                    </div>
+                    <img src="img/zgame.PNG">
+                    <div class="portfolio-item-footer">
+                        <p class="portfolio-link"><a href="javascript:;" onclick="openContent('UntitledZGame');">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container">
+                <h2>Closing words</h2>
+                <p>Thank you for taking the time to view my portfolio, even if you're not interested.</p>
+                <p>I wish you the best in whatever your current or next endeavour is :)</p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        var content;
+        fetch("/content.json")
+            .then(response => response.json())
+            .then(json => content = json);
+
+        var span = document.getElementsByClassName("close")[0];
+        var modal = document.getElementById("contentModal");
+        function openContent(contentName) {
+            console.log("??")
+            console.log('/content/' + content[contentName])
+            var xhr= new XMLHttpRequest();
+            xhr.open('GET', '/content/' + content[contentName], true);
+            xhr.onreadystatechange= function() {
+                if (this.readyState!==4) return;
+                if (this.status!==200) return; // or whatever error handling you want
+                document.getElementById('modal-inner').innerHTML= this.responseText;
+                modal.style.display = "block";
+            };
+            xhr.send();
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        } 
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+    </script>
+</html>

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+body {
+    background-color: #110e1b;
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.page-wrapper {
+    margin: auto;
+    width: auto;
+    max-width: 800px;
+    padding: 15px 30px;
+}
+
+.page-wrapper h1 {
+    color: white;
+}
+
+.content-container {
+    
+    color: white;
+    background-color: #3c162f;
+    padding: 20px;
+}
+
+.content-container h2 {
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.content-container p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.content-container a {
+    color: white;
+}
+
+.content-container a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.content-container {
+    margin-bottom: 20px;
+}
+
+.portfolio-item {
+    background-color: #7c162e;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.portfolio-item-head h4 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.portfolio-item img {
+    max-width: 100%;
+}
+
+.portfolio-item-footer p {
+    margin-top: 10px;
+}
+
+.portfolio-link a:link, .portfolio-link a:visited {
+    background-color: #f44336;
+    width: 100%;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .portfolio-link a:hover, .portfolio-link a:active {
+    background-color: #110e1b;
+  }
+
+   /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #7c162e;
+    color: white;
+    margin: 10px auto;
+    width: auto;
+    max-width: 800px;
+    padding: 15px 30px;
+  }
+
+  #modal-inner img {
+    max-height: 500px;
+  }
+
+  .imgContainer {
+      text-align: center;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+
+iframe {
+    outline: none;
+    border: none;
+}
